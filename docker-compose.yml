@@ -1,0 +1,17 @@
+Vercion 3.9
+
+ service:
+  api:
+   build:
+    context:
+     dockerfile: Dockerfile.api
+       ports:
+         - "8000:8000"
+            volumes:
+               - ./src:/app/src
+      web:
+      build 
+      context: ./web
+      dockerfile: ../Dockerfile.web
+    ports:
+      - "3000:3000"
