@@ -1,0 +1,35 @@
+import yaml
+import os
+from pathlib import Path
+
+class Config:
+  
+
+    def _init_(self, config_file: str = "config/default.yaml"):
+        self.raw = self._load_yaml(config_file)
+        self.api = self.raw.get("api", {})
+        self.quantum = self.raw.get("quantum", {})
+
+    @staticmethod
+    def _load_yaml(path: str):
+        path = Path(path)
+        if not path.exists():
+            raise FileNotFoundError(f"Config file not found: {path}")
+
+        with open(path, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f)
+
+    def get_api_host(self):
+        return os.getenv("API_HOST", self.api.get("host", "0.0.0.0"))
+
+    def get_api_port(self):
+        return int(os.getenv("API_PORT", self.api.get("port", 8000)))
+
+    def get_quantum_qubits(self):
+        return int(os.getenv("QUANTUM_QUBITS", self.quantum.get("qubits", 100)))
+
+    def get_quantum_backend(self):
+        return os.getenv("QUANTUM_BACKEND", self.quantum.get("backend", "aer_simulator"))
+
+
+config = Config()
