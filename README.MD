@@ -9,3 +9,5 @@ Este proyecto incluye:
 - Circuitos cuánticos Qiskit
 - API en Python
 - Interfaz web con React + Vite
+
+It should be noted that this is not entirely the final version of the project; it is only version 0.0.3 of the qmicns system that I had previously designed.
