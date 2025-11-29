@@ -1,4 +1,4 @@
-# EEG Quantum Net v1.0.0
+# EEG Quantum Net v0.0.3 pre-Alpha
 
 Sistema experimental para procesamiento de EEG + extracción de características + incrustación cuántica (100 qubits) + integración ML.
 
